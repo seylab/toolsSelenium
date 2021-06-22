@@ -1,0 +1,183 @@
+Selenium; 
+OPEN BROWSER; //DAY1
+	OPEN
+        WebDriverManager.firefoxdriver().setup();
+
+        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
+        WebDriver driver = new SafariDriver();
+	GET;        
+		driver.get(String URL);
+	    driver.get("https://www.google.com");
+
+BROWSER CLOSE TAB & QUİT; // DAY2
+		driver.close(); // close current tab
+		driver.quit(); 	// close all tab
+
+GET TITLE; // DAY2
+		String titleF = driver.getTitle();
+        System.out.println("title = " + titleF);
+
+GET URL; // DAY2
+		driver.getCurrentUrl();
+		//getCurrentUrl --> get the url from browser
+        String currentUrl = driver.getCurrentUrl();
+        System.out.println("currentUrl = " + currentUrl);
+
+GET PAGE SOURCE; // DAY2
+		driver.getPageSource();
+		//getPageSource()--> gets the source of the page
+        String pageSource = driver.getPageSource();
+        System.out.println("pageSource = " + pageSource);
+
+GET NAVIGATE; // DAY2
+ 		driver.navigate().to("");
+        // navigate to another website with different selenium method
+        
+        driver.navigate().to("http://www.facebook.com"); 
+        //goes back to previous page 
+
+        driver.navigate().back();
+        //goes back to back
+        driver.navigate().forward();
+
+        //refresh to webpage
+        driver.navigate().refresh();
+
+WEBELEMENT { // DAY3
+	FindElement();
+		(By.name("email")); 		//name locator
+		(By.id("form_submit"));  	//id locator
+		(By.xpath(""));  			//xpath locator
+        (By.partialLinkText(""));
+        (By.linkText(""));
+        (By.className(""));
+        (By.cssSelector(""));		//css locator
+        (By.tagName(""));			//Tag name locator
+    }
+
+SENDKEYS & CLICK;{
+	.sendKeys("");
+		WebElement emailInputBox = driver.findElement(By.name("email"));
+        String expectedEmail = "mehmetinadresi35@gmail.com";
+
+        //sendKeys()--> send keyboard action to the webelement
+        emailInputBox.sendKeys(expectedEmail);
+        =========================================	
+
+    .click();
+        //click retrieve password button
+        WebElement retrievePasswordButton = driver.findElement(By.id("form_submit"));
+        retrievePasswordButton.click();
+    }
+
+GET TEXT {// DAY4
+		xpath.getText();
+	    //print multiple buttons header
+        System.out.println(driver.findElement(By.className("h3")).getText());// output --> multiple buttons
+		}
+		
+FULL SCREEN; 
+		.manage().window().maximize();
+		// make browser full screen
+        driver.manage().window().maximize();
+
+PROPER WAY;
+        //proper way
+		WebElement putSomeEmail = driver.findElement(By.name("email"));
+		putSomeEmail.sendKeys("sweetly35@gmail.com");
+
+LAZY WAY;
+        //lazy way
+        driver.findElement(By.name("email")).sendKeys("sweetly35@gmail.com");
+
+TESTNG //DAY7
+	/TestNG Syntax/
+		@Test 
+		public void test1(){
+			System.out.println("My Test case");
+		}
+		@Test
+		public void test2(){
+			System.out.println("My second test case");
+		}
+
+	/Before & After Method/
+		@BeforeMethod
+	    public void setUp(){
+	        System.out.println("Webdriver, Opening Browser");
+	    }
+	    @AfterMethod
+	    public void tearDown(){
+	        System.out.println("Closing Browser, Quit");
+	    }
+
+	/Before & After Class/
+	    @BeforeClass
+	    public void setUpclass(){
+	        System.out.println("--BEFORE CLASS--");
+	        System.out.println("executed one time before the class");
+	    }
+	    @AfterClass
+	    public void tearDownClass(){
+	        System.out.println("--AFTER CLASS--");
+	        System.out.println("Some Reporting Code Here");
+	    }
+
+	/Assertion/
+		public class TestNGAssertionsDemo {
+
+		    @BeforeMethod
+			    public void setUp(){
+			        System.out.println("Open Browser");
+
+			    }
+
+		    @Test
+		    public void test1(){
+		        System.out.println("First Assertion");
+		        Assert.assertEquals("title","tiTle");
+
+		        System.out.println("Second Assertion");
+		        Assert.assertEquals("url","url");
+			    }
+
+		    @Test
+		    public void test2(){
+		        Assert.assertEquals("test2","test22","verify test2");
+			    }
+
+		    @Test
+		    public void test3(){
+		        String expectedTitle ="Cyb";
+		        String actualTitle = "Cybertek";
+
+		        Assert.assertTrue(actualTitle.startsWith(expectedTitle),"Verify title starts with Cyb");
+			    }
+
+		    @Test
+		    public void test4(){
+		        //verify email contains @ sign
+		        String email = "mikesmith.com";
+
+		        Assert.assertTrue(email.contains("@"),"verify email contains @");
+			    }
+
+		    @Test
+		    public void test5(){
+		        Assert.assertFalse(0>1,"verify that 0 is not greater than 1");
+			    }
+
+		    @Test
+		    public void test6(){
+		        Assert.assertNotEquals("one","two");
+			    }
+
+		    @AfterMethod
+		    public void tearDown(){
+		        System.out.println("Close browser");
+			    }
+
+			}
+
