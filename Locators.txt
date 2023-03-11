@@ -20,6 +20,30 @@ Xpath Locators usages;
   "//input[@type='submit' and @name='btnLogin']
   "//*[@id='java_technologies']//child::li
 
+  Sibling
+  "//div[@class='canvas- graph']//a[@href='/accounting.html'][i[@class='icon-usd']]/following-sibling::h4"
+  "//*[@type='submit']//preceding-sibling::input"
+  Using AND and OR
+  Xpath=//*[@type='submit' OR @name='btnReset']
+  Xpath=//input[@type='submit' and @name='btnLogin']
+
+  XPath Parent in Selenium
+  Xpath=//*[@id='rt-feature']//parent::div
+
+  Starts-with
+  Xpath=//label[starts-with(@id,'message')]
+
+  Xpath axes
+  Xpath=//*[@type='text']//following::input
+  Xpath= //*[@type='submit']//preceding::input
+  Xpath= //*[@id='rt-feature']//descendant::a
+
+
+
+
+
+
+
 
 CSS Locators usages;
 
