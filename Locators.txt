@@ -1,0 +1,82 @@
+Examples:
+Xpath Locators usages;
+  "//button[@name='button2']"
+  "//input[@id='twotabsearchtextbox']"
+  "//input[@value='Go']"
+  "//span[contains(text(),'results for')]"
+  "//*[contains(@type,'sub')]
+  "//*[contains(@name,'btn')]
+  "//span[text()='results for']"
+  "//*[text()='results for']"
+  "//*[@id="fox"]/a"
+  "(//*[@id="fox"])[2]"
+  "//input[@type='text']
+      "//label[@id='message23']
+      "//input[@value='RESET']
+      "//*[@class='barone']
+      "//a[@href='http://demo.google.com/']
+      "//img[@src='//cdn.google.com/images/home/java.png']
+  "//*[@type='submit' or @name='btnReset']
+  "//input[@type='submit' and @name='btnLogin']
+  "//*[@id='java_technologies']//child::li
+
+
+CSS Locators usages;
+
+Custom CSS
+
+1. id --> htmltag#id, #id
+2. class --> htmltag.classname, .classname, .c1.c2.c3, htmltag.c1.c2.c3....cn
+3.parent>childtag
+
+    ul#categories
+    input#username
+    input#password
+    input.form-control.private-form__control.login-email
+    input#username.form-control.private-form__control.login-email
+    input.login-email
+    .form-control.private-form__control.login-email
+
+4. htmltag[id='value']
+    //div[@id='test']
+
+    input[id='username']    -- CSS with 1 attribute
+    //input[@id='username'] -- XPATH
+
+    input[id='username'][type='email']    -- CSS with 2 attributes
+    //input[@id='username' and @type='email'] XPATH
+
+5. contains in css
+    *=contains
+
+    input[id*='user']
+    input[id*='name']
+
+6. starting the text in css;
+    input[id^='user']
+
+7. ending the text in css;
+    input[id$='name']
+
+8. comma in css;
+    div.private-form_input-wrapper, input#username
+
+9. first-of-type in css;
+    ul#categories>li:first-of-type
+
+10. last-of-type in css;
+    ul#categories>li:last-of-type
+
+11. nth-of-type
+    ul#categories>li:nth-of-type(1)
+    ul#categories>li:nth-of-type(12)
+    ul#categories>li:nth-of-type(3)
+    ul#categories>li:nth-of-type(n) all. forloops, listof elements,
+
+12. sibling of element
+    div.private-form__input-wrapper + div
+    div.private-form__input-wrapper+div.private-form__meta
+    ul#categories>li:nth-of-type(3)+li
+
+13. not operator in css:
+    input.form-control.private-form__control:not(.login-password)
