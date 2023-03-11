@@ -39,12 +39,6 @@ Xpath Locators usages;
   Xpath= //*[@id='rt-feature']//descendant::a
 
 
-
-
-
-
-
-
 CSS Locators usages;
 
 Custom CSS
